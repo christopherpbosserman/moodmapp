@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Entries from './components/Entries.jsx';
 import CreateEntry from './components/CreateEntry.jsx';
 
+import './stylesheets/styles.css';
+
 class App extends Component {
   constructor(props) {
     super(props);

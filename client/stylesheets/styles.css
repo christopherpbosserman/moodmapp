@@ -1,0 +1,46 @@
+html {
+  background-color: #fffffc;
+}
+
+.entryHeadTitle {
+  margin: 0;
+}
+
+.entryContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.entryCard {
+  height: 10em;
+  width: 10em;
+  margin: 1em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.entryDetailsList {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.mood1 {
+  background-color: #ee6055;
+}
+
+.mood2 {
+  background-color: #ff9b85;
+}
+
+.mood3 {
+  background-color: #ffd97d;
+}
+
+.mood4 {
+  background-color: #aaf683;
+}
+
+.mood5 {
+  background-color: #60d394;
+}

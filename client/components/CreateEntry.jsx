@@ -16,9 +16,9 @@ class CreateEntry extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A mood was submitted: ' + this.state.mood + ' ' + this.state.date);
+    // alert('A mood was submitted: ' + this.state.mood + ' ' + this.state.date);
     console.log(this.state);
-    event.preventDefault();
+    // event.preventDefault();
 
     // on submit
     // check if date already exists, if so prompt user
@@ -33,6 +33,9 @@ class CreateEntry extends React.Component {
     })
       .then((res) => res.json())
       .then((data) => console.log(data))
+      .then(() => {
+        history.push('/');
+      })
       .catch((err) => console.log('CreateEntry fect /api/: ERROR: ', err));
 
     this.getDate();
