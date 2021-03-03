@@ -45,8 +45,6 @@ class Entries extends Component {
       return <EntryCard key={i} info={entry} />;
     });
 
-    console.log('entryElems', entryElems);
-
     return (
       <section className="mainSection">
         <header className="pageHeader">
