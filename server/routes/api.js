@@ -11,6 +11,7 @@ const entryController = require(path.resolve(
 const router = express.Router();
 
 router.get('/', entryController.getEntry, (req, res) => {
+  console.log('api.js', res.locals.entries);
   return res.status(200).json(res.locals.entries);
 });
 

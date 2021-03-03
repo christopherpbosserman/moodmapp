@@ -8,7 +8,7 @@ entryController.getEntry = (req, res, next) => {
   console.log('getEntry fired');
   Entry.find()
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       res.locals.entries = data;
       return next();
     })

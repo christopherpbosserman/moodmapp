@@ -1,7 +1,8 @@
 import React from 'react';
 
 const EntryCard = (info) => {
-  const { date, mood } = info;
+  const { date, mood } = info.info;
+  console.log('info', info);
   return (
     <article className="entryCard">
       <div className="entryHeadContainer">
