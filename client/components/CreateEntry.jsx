@@ -17,7 +17,24 @@ class CreateEntry extends React.Component {
 
   handleSubmit(event) {
     alert('A mood was submitted: ' + this.state.mood + ' ' + this.state.date);
+    console.log(this.state);
     event.preventDefault();
+
+    // on submit
+    // check if date already exists, if so prompt user
+    // if they want to update use update route
+    // if doesnt exist use create route
+    fetch('/api/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'Application/JSON',
+      },
+      body: JSON.stringify(this.state),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log('CreateEntry fect /api/: ERROR: ', err));
+
     this.getDate();
     this.setState({ mood: '3' });
   }

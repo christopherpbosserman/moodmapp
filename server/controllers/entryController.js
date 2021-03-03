@@ -24,7 +24,7 @@ entryController.postEntry = (req, res, next) => {
   console.log('postEntry fired');
   const { date, mood } = req.body;
   Entry.create({
-    date: new Date(date),
+    date,
     mood,
   })
     .then((data) => {
