@@ -8,7 +8,7 @@ class CreateEntry extends React.Component {
       mood: '3',
       desc: 'OK',
       note: 'Leave a note?',
-      clear: false,
+      cleared: false,
       today: [],
       done: false,
     };
@@ -30,27 +30,31 @@ class CreateEntry extends React.Component {
   handleChange(event) {
     const target = event.target;
     const name = target.name;
-    switch (target.value) {
-      case '1':
-        this.setState({ desc: 'Bad' });
-        break;
-      case '2':
-        this.setState({ desc: 'Not Good' });
-        break;
-      case '3':
-        this.setState({ desc: 'OK' });
-        break;
-      case '4':
-        this.setState({ desc: 'Good' });
-        break;
-      case '5':
-        this.setState({ desc: 'Great' });
-        break;
-      default:
-        break;
+    const value = target.value;
+
+    if (name === 'mood') {
+      switch (value) {
+        case '1':
+          this.setState({ desc: 'Bad' });
+          break;
+        case '2':
+          this.setState({ desc: 'Not Good' });
+          break;
+        case '3':
+          this.setState({ desc: 'OK' });
+          break;
+        case '4':
+          this.setState({ desc: 'Good' });
+          break;
+        case '5':
+          this.setState({ desc: 'Great' });
+          break;
+        default:
+          break;
+      }
     }
 
-    this.setState({ [name]: target.value });
+    this.setState({ [name]: value });
   }
 
   handleSubmit(event) {
@@ -62,9 +66,6 @@ class CreateEntry extends React.Component {
       body: JSON.stringify(this.state),
     })
       .then((res) => res.json())
-      .then(() => {
-        history.push('/');
-      })
       .catch((err) => console.log('CreateEntry fect /api/: ERROR: ', err));
 
     this.setState({ mood: '3' });
@@ -72,7 +73,7 @@ class CreateEntry extends React.Component {
 
   clearForm() {
     if (!this.state.clear) {
-      this.setState({ note: '', clear: true });
+      this.setState({ note: '', cleared: true });
     }
   }
 
@@ -93,6 +94,8 @@ class CreateEntry extends React.Component {
         console.log(err);
       });
   }
+
+  componentDidUpdate() {}
 
   render() {
     if (!this.state.done) {

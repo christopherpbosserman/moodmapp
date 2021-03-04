@@ -32,11 +32,13 @@ const DetailsModal = ({ type, position, id, closeModal }) => {
 
   let { mood, desc, note } = details;
   if (desc === 'null') desc = 'not entered.';
+  console.log(note);
+  if (note === 'Leave a note?' || note === undefined) note = 'No notes';
 
   let info = (
     <ul className={`modalList mood${mood}`}>
       <li className="modalDetail">Your mood was {desc}</li>
-      <li className="modalDetail">Notes: {note || 'No notes'}</li>
+      <li className="modalDetail">Notes: {note}</li>
     </ul>
   );
 

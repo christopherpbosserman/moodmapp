@@ -22,11 +22,13 @@ entryController.getEntry = (req, res, next) => {
 
 entryController.postEntry = (req, res, next) => {
   console.log('postEntry fired');
-  const { date, mood, desc } = req.body;
+  console.log(req.body);
+  const { date, mood, desc, note } = req.body;
   Entry.create({
     date,
     mood,
     desc,
+    note,
   })
     .then((data) => {
       res.locals.data = data;
