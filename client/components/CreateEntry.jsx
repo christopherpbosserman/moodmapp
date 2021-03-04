@@ -9,6 +9,8 @@ class CreateEntry extends React.Component {
       desc: 'OK',
       note: 'Leave a note?',
       clear: false,
+      today: [],
+      done: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -66,43 +68,91 @@ class CreateEntry extends React.Component {
     }
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(this.state.date);
+    fetch(`/api/details?id=${this.state.date}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length !== 0) {
+          const { mood, desc } = data[0];
+          this.setState({
+            mood,
+            desc,
+            done: true,
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   render() {
-    console.log(this.state.date);
+    if (!this.state.done) {
+      return (
+        <section>
+          <h2>How are you feeling today?</h2>
+          <form
+            className={`createEntry mood${this.state.mood}`}
+            onSubmit={this.handleSubmit}
+          >
+            <div>
+              <input
+                className={`moodSlider mood${this.state.mood}`}
+                name="mood"
+                type="range"
+                min="1"
+                max="5"
+                value={this.state.mood}
+                onChange={this.handleChange}
+              />
+              <div className="moodDesc">
+                <center>{this.state.desc}</center>
+              </div>
+            </div>
+            <div>
+              <input
+                name="note"
+                type="text"
+                value={this.state.note}
+                onChange={this.handleChange}
+                onClick={this.clearForm}
+              ></input>
+            </div>
 
-    return (
-      <form
-        className={`createEntry mood${this.state.mood}`}
-        onSubmit={this.handleSubmit}
-      >
-        <div>
-          <input
-            className={`moodSlider mood${this.state.mood}`}
-            name="mood"
-            type="range"
-            min="1"
-            max="5"
-            value={this.state.mood}
-            onChange={this.handleChange}
-          />
-          <div className="moodDesc">
-            <center>{this.state.desc}</center>
-          </div>
-        </div>
-        <div>
-          <input
-            name="note"
-            type="text"
-            value={this.state.note}
-            onChange={this.handleChange}
-            onClick={this.clearForm}
-          ></input>
-        </div>
+            <input type="submit" value="Submit" />
+          </form>
+        </section>
+      );
+    }
 
-        <input type="submit" value="Submit" />
-      </form>
-    );
+    if (this.state.mood < 3) {
+      return (
+        <section className={`createEntry mood${this.state.mood}`}>
+          <center>
+            <div className="moodDesc">
+              <h5>I'm sorry you are feeling</h5>
+              <h3>{this.state.desc}</h3>
+              <h5>today.</h5>
+            </div>
+          </center>
+        </section>
+      );
+    }
+
+    if (this.state.mood >= 3) {
+      return (
+        <section className={`createEntry mood${this.state.mood}`}>
+          <center>
+            <div className="moodDesc">
+              <h5>I'm glad you are feeling</h5>
+              <div>{this.state.desc}</div>
+              <h5>today.</h5>
+            </div>
+          </center>
+        </section>
+      );
+    }
   }
 }
 

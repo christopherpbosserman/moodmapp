@@ -5,7 +5,9 @@ html {
 }
 
 body,
-h1 {
+h1,
+h5,
+h3 {
   margin: 0;
 }
 
@@ -94,7 +96,9 @@ main {
 /* .Sat {
   border-top: 2px solid hsl(0, 0%, 20%, 0.5);
 } */
-
+.mood0 {
+  box-shadow: inset 0px 0px 2px #333333;
+}
 .mood0,
 .hidden0 {
   text-shadow: none;

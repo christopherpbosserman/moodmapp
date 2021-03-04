@@ -14,6 +14,10 @@ router.get('/', entryController.getEntry, (req, res) => {
   return res.status(200).json(res.locals.entries);
 });
 
+router.get('/details', entryController.getDetails, (req, res) => {
+  return res.status(200).json(res.locals.details);
+});
+
 router.post('/', entryController.postEntry, (req, res) => {
   return res.status(200).json(res.locals.data);
 });

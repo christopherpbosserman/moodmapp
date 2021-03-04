@@ -22,10 +22,11 @@ entryController.getEntry = (req, res, next) => {
 
 entryController.postEntry = (req, res, next) => {
   console.log('postEntry fired');
-  const { date, mood } = req.body;
+  const { date, mood, desc } = req.body;
   Entry.create({
     date,
     mood,
+    desc,
   })
     .then((data) => {
       console.log(data);
@@ -35,6 +36,25 @@ entryController.postEntry = (req, res, next) => {
     .catch((err) => {
       return next({
         log: `Error in postEntry middleware: ${err}`,
+        message: { err: 'An error occurred' },
+      });
+    });
+};
+
+entryController.getDetails = (req, res, next) => {
+  console.log('getDetails fired');
+  const date = req.query.id;
+  console.log('id: ', date);
+  Entry.find({
+    date,
+  })
+    .then((data) => {
+      res.locals.details = data;
+      return next();
+    })
+    .catch((err) => {
+      return next({
+        log: `Error in getEntries middleware: ${err}`,
         message: { err: 'An error occurred' },
       });
     });

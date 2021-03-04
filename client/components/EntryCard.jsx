@@ -4,13 +4,10 @@ const EntryCard = (props) => {
   const { date, mood } = props.info;
   let formatDate = new Date(date + ' 00:00').toDateString();
   let moDa = formatDate.slice(3, 10);
-  let sat = formatDate.slice(0, 3);
+  if (moDa === 'alid D') moDa = '';
   let star = '';
   return (
-    <article className={`entryCard mood${mood} ${sat}`}>
-      {/* <div className="entryHeadContainer">
-        <h3 className="entryHeadTitle">Entry</h3>
-      </div> */}
+    <article className={`entryCard mood${mood}`}>
       <div className="entryDetailsList">
         <center>
           <p className={`entryDetail hidden${mood}`}>
