@@ -68,6 +68,7 @@ main {
   margin: 0.5px;
   padding: 0.5em;
   border-radius: 0.25em;
+  cursor: pointer;
 }
 
 .entryCard:hover {
@@ -97,10 +98,11 @@ main {
   border-top: 2px solid hsl(0, 0%, 20%, 0.5);
 } */
 .mood0 {
-  box-shadow: inset 0px 0px 2px #333333;
+  background-color: #fffffc;
+  box-shadow: inset 0px 0px 0px 1px hsl(0, 0%, 20%, 0.1);
 }
-.mood0,
-.hidden0 {
+
+.mood9 {
   text-shadow: none;
   color: #fffffc;
   background-color: #fffffc;
@@ -139,4 +141,33 @@ main {
   border-radius: 1em;
   background: #fffffc;
   cursor: pointer;
+}
+
+/* modal */
+.modal {
+  position: absolute;
+  display: inline-block;
+  padding: 0.8rem;
+  color: #333333;
+  /* background: #fffffc; */
+  border: 1px solid hsla(0, 0%, 20%, 0.25);
+  border-radius: .25em;
+  box-shadow: 1px 1px 3px hsla(0, 0%, 20%, 0.5);
+}
+
+.modalName {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.modalList {
+  box-shadow: none;
+  padding-left: 1em;
+  margin: 0;
+  list-style-type:none;
+}
+
+.modalHeading {
+  display: flex;
+  justify-content: space-between;
 }

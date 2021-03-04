@@ -49,6 +49,7 @@ entryController.getDetails = (req, res, next) => {
     date,
   })
     .then((data) => {
+      console.log(data);
       res.locals.details = data;
       return next();
     })

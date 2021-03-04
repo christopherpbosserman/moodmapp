@@ -4,7 +4,7 @@ class CreateEntry extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: new Date().toLocaleString('en-US').split(',')[0],
+      date: this.formatDate(),
       mood: '3',
       desc: 'OK',
       note: 'Leave a note?',
@@ -16,6 +16,15 @@ class CreateEntry extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearForm = this.clearForm.bind(this);
+  }
+
+  formatDate() {
+    const dateArr = new Date().toLocaleString('en-US').split(',')[0].split('/');
+
+    if (dateArr[0] < 10) dateArr[0] = '0' + dateArr[0];
+    if (dateArr[1] < 10) dateArr[1] = '0' + dateArr[1];
+
+    return dateArr.join('/');
   }
 
   handleChange(event) {
