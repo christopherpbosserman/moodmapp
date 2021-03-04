@@ -122,6 +122,7 @@ class CreateEntry extends React.Component {
             </div>
             <div>
               <input
+                className="textBox"
                 name="note"
                 type="text"
                 value={this.state.note}
@@ -130,7 +131,7 @@ class CreateEntry extends React.Component {
               ></input>
             </div>
 
-            <input type="submit" value="Submit" />
+            <input className="subButt" type="submit" value="Submit" />
           </form>
         </section>
       );

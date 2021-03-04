@@ -33,7 +33,8 @@ const DetailsModal = ({ type, position, id, closeModal }) => {
   let { mood, desc, note } = details;
   if (desc === 'null') desc = 'not entered.';
   console.log(note);
-  if (note === 'Leave a note?' || note === undefined) note = 'No notes';
+  if (note === 'Leave a note?' || note === undefined || note === '')
+    note = 'No notes';
 
   let info = (
     <ul className={`modalList mood${mood}`}>
