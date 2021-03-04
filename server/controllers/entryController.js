@@ -7,7 +7,7 @@ const entryController = {};
 entryController.getEntry = (req, res, next) => {
   console.log('getEntry fired');
   Entry.find()
-    .sort({ date: -1 })
+    .sort({ date: 1 })
     .then((data) => {
       res.locals.entries = data;
       return next();

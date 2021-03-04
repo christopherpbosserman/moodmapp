@@ -14,9 +14,9 @@ class App extends Component {
     return (
       <main>
         <h1>Good Evening Christopher</h1>
+        <Entries />
         <h2>How are you feeling today?</h2>
         <CreateEntry />
-        <Entries />
       </main>
     );
   }

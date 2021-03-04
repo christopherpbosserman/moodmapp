@@ -3,6 +3,7 @@ import React from 'react';
 const EntryCard = (props) => {
   const { date, mood } = props.info;
   let formatDate = new Date(date + ' 00:00').toDateString();
+  let moDa = formatDate.slice(3, 10);
   let sat = formatDate.slice(0, 3);
   let star = '';
   return (
@@ -11,9 +12,11 @@ const EntryCard = (props) => {
         <h3 className="entryHeadTitle">Entry</h3>
       </div> */}
       <div className="entryDetailsList">
-        <p className="entryDetail">
-          {star} {formatDate} {star}
-        </p>
+        <center>
+          <p className={`entryDetail hidden${mood}`}>
+            {star} {moDa} {star}
+          </p>
+        </center>
       </div>
     </article>
   );

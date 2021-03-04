@@ -31,7 +31,7 @@ class Entries extends Component {
     if (!this.state.fetchedEntries)
       return (
         <div>
-          <h1>Loading data, please wait...</h1>
+          <h3>Loading data, please wait...</h3>
         </div>
       );
 

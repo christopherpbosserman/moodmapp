@@ -3,10 +3,17 @@ import React from 'react';
 class CreateEntry extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { date: '', mood: '3', desc: 'OK' };
+    this.state = {
+      date: new Date().toLocaleString('en-US').split(',')[0],
+      mood: '3',
+      desc: 'OK',
+      note: 'Leave a note?',
+      clear: false,
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearForm = this.clearForm.bind(this);
   }
 
   handleChange(event) {
@@ -36,14 +43,6 @@ class CreateEntry extends React.Component {
   }
 
   handleSubmit(event) {
-    // alert('A mood was submitted: ' + this.state.mood + ' ' + this.state.date);
-    console.log(this.state);
-    // event.preventDefault();
-
-    // on submit
-    // check if date already exists, if so prompt user
-    // if they want to update use update route
-    // if doesnt exist use create route
     fetch('/api/', {
       method: 'POST',
       headers: {
@@ -58,35 +57,25 @@ class CreateEntry extends React.Component {
       })
       .catch((err) => console.log('CreateEntry fect /api/: ERROR: ', err));
 
-    this.getDate();
     this.setState({ mood: '3' });
   }
 
-  getDate() {
-    const date = new Date().toISOString().slice(0, 10);
-    this.setState({ date: date });
+  clearForm() {
+    if (!this.state.clear) {
+      this.setState({ note: '', clear: true });
+    }
   }
 
-  componentDidMount() {
-    this.getDate();
-  }
+  componentDidMount() {}
 
   render() {
+    console.log(this.state.date);
+
     return (
-      // <div className="createEntry">
       <form
         className={`createEntry mood${this.state.mood}`}
         onSubmit={this.handleSubmit}
       >
-        <div>
-          <input
-            name="date"
-            type="date"
-            // defaultValue={this.state.date}
-            value={this.state.date}
-            onChange={this.handleChange}
-          />
-        </div>
         <div>
           <input
             className={`moodSlider mood${this.state.mood}`}
@@ -101,10 +90,18 @@ class CreateEntry extends React.Component {
             <center>{this.state.desc}</center>
           </div>
         </div>
+        <div>
+          <input
+            name="note"
+            type="text"
+            value={this.state.note}
+            onChange={this.handleChange}
+            onClick={this.clearForm}
+          ></input>
+        </div>
 
         <input type="submit" value="Submit" />
       </form>
-      // </div>
     );
   }
 }

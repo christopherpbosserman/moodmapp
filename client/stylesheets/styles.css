@@ -33,11 +33,20 @@ main {
   margin: 0;
 }
 
-.entryContainer {
-  margin-top: 3em;
+.mainSection {
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
+}
+
+.entryContainer {
+  margin: 2em;
+  height: 331px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
+  align-content: center;
+  /* justify-content: flex-start; */
 }
 
 .createEntry {
@@ -45,15 +54,16 @@ main {
   flex-direction: column;
   align-items: center;
   border-radius: 1em;
+  padding: 1em;
 }
 
 .entryCard {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  width: 100%;
+  width: 30px;
   height: 30px;
-  margin: 0.5px 0;
+  margin: 0.5px;
   padding: 0.5em;
   border-radius: 0.25em;
 }
@@ -70,8 +80,8 @@ main {
 .entryDetail {
   margin: 0;
   padding: 0;
-  font-size: 2em;
-  color: hsl(60, 100%, 99%, 0.75);
+  font-size: 1em;
+  color: hsl(60, 100%, 99%, 0.8);
   text-shadow: 1px 1px 3px hsla(0, 0%, 20%, 0.5);
 }
 
@@ -81,8 +91,15 @@ main {
   text-shadow: 1px 1px 3px hsl(60, 100%, 99%, 0.5);
 }
 
-.Sat {
+/* .Sat {
   border-top: 2px solid hsl(0, 0%, 20%, 0.5);
+} */
+
+.mood0,
+.hidden0 {
+  text-shadow: none;
+  color: #fffffc;
+  background-color: #fffffc;
 }
 
 .mood1 {
