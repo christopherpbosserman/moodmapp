@@ -62,7 +62,6 @@ class CreateEntry extends React.Component {
       body: JSON.stringify(this.state),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
       .then(() => {
         history.push('/');
       })
@@ -78,7 +77,6 @@ class CreateEntry extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.state.date);
     fetch(`/api/details?id=${this.state.date}`)
       .then((res) => res.json())
       .then((data) => {

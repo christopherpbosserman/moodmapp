@@ -11,6 +11,8 @@
   "author": "Christopher Bosserman",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "express": "^4.17.1",
     "mongoose": "^5.11.18",
     "react": "^17.0.1",

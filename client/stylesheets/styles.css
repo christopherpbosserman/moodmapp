@@ -151,8 +151,9 @@ main {
   color: #333333;
   /* background: #fffffc; */
   border: 1px solid hsla(0, 0%, 20%, 0.25);
-  border-radius: .25em;
+  border-radius: 0.25em;
   box-shadow: 1px 1px 3px hsla(0, 0%, 20%, 0.5);
+  text-shadow: 1px 1px 3px hsl(60, 100%, 99%, 0.5);
 }
 
 .modalName {
@@ -164,7 +165,7 @@ main {
   box-shadow: none;
   padding-left: 1em;
   margin: 0;
-  list-style-type:none;
+  list-style-type: none;
 }
 
 .modalHeading {

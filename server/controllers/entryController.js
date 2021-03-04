@@ -29,7 +29,6 @@ entryController.postEntry = (req, res, next) => {
     desc,
   })
     .then((data) => {
-      console.log(data);
       res.locals.data = data;
       return next();
     })
@@ -44,12 +43,10 @@ entryController.postEntry = (req, res, next) => {
 entryController.getDetails = (req, res, next) => {
   console.log('getDetails fired');
   const date = req.query.id;
-  console.log('id: ', date);
   Entry.find({
     date,
   })
     .then((data) => {
-      console.log(data);
       res.locals.details = data;
       return next();
     })
