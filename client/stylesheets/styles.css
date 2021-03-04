@@ -1,11 +1,22 @@
 html {
   background-color: #fffffc;
+  color: #333333;
+  font-family: 'Nunito', sans-serif;
 }
 
 body,
-h1,
-h2 {
+h1 {
   margin: 0;
+}
+
+h1 {
+  margin-top: 0.5em;
+  font-size: 4em;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 2em;
 }
 
 main {
@@ -23,9 +34,17 @@ main {
 }
 
 .entryContainer {
+  margin-top: 3em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.createEntry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1em;
 }
 
 .entryCard {
@@ -39,6 +58,10 @@ main {
   border-radius: 0.25em;
 }
 
+.entryCard:hover {
+  opacity: 0.75;
+}
+
 .entryDetailsList {
   margin: 0;
   padding: 0;
@@ -48,16 +71,18 @@ main {
   margin: 0;
   padding: 0;
   font-size: 2em;
-  color: hsla(60, 100%, 99%, 0.25);
+  color: hsl(60, 100%, 99%, 0.75);
+  text-shadow: 1px 1px 3px hsla(0, 0%, 20%, 0.5);
 }
 
-.entryDetail:hover {
-  color: hsla(60, 100%, 99%);
-  text-shadow: 1px 1px 5px black;
+.moodDesc {
+  font-size: 2em;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px hsl(60, 100%, 99%, 0.5);
 }
 
 .Sat {
-  border: 2px solid black;
+  border-top: 2px solid hsl(0, 0%, 20%, 0.5);
 }
 
 .mood1 {
@@ -78,4 +103,19 @@ main {
 
 .mood5 {
   background-color: #aaf683;
+}
+
+.moodSlider {
+  width: 250px;
+  appearance: none;
+}
+
+.moodSlider::-webkit-slider-thumb {
+  appearance: none;
+  border: 2px solid #333333;
+  height: 2em;
+  width: 1em;
+  border-radius: 1em;
+  background: #fffffc;
+  cursor: pointer;
 }

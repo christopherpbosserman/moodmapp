@@ -13,7 +13,8 @@ class App extends Component {
   render() {
     return (
       <main>
-        <h1>Good Afternoon Christopher</h1>
+        <h1>Good Evening Christopher</h1>
+        <h2>How are you feeling today?</h2>
         <CreateEntry />
         <Entries />
       </main>

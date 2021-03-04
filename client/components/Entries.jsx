@@ -47,14 +47,6 @@ class Entries extends Component {
 
     return (
       <section className="mainSection">
-        <header className="pageHeader">
-          <h2>Entries</h2>
-          {/* <Link to={'/create'}>
-            <button type="button" className="btnSecondary">
-              Create Character
-            </button>
-          </Link> */}
-        </header>
         <div className="entryContainer">{entryElems}</div>
         {/* {this.state.modalState.open && (
           <DetailsModal
