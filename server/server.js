@@ -3,11 +3,10 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const PORT = 3000;
-const MONGO_URI =
-  'mongodb+srv://christopherpbosserman:PfOjsMfSszUceFLU@cluster0.p5ccs.mongodb.net/Cluster0?retryWrites=true&w=majority';
-
+const MONGO_URI = process.env.MONGO_URI;
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
